@@ -27,3 +27,7 @@ public class BlogDetails {
     private List<Review> review;
 
 }
+
+
+
+

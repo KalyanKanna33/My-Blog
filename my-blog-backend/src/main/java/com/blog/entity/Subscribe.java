@@ -21,5 +21,5 @@ public class Subscribe {
     private String email;
     @Indexed(unique = true, background = true)
     private String mobileNumber;
-
+    private boolean activeSubscribe;
 }
