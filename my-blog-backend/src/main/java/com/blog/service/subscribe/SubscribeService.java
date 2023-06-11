@@ -9,5 +9,4 @@ public interface SubscribeService {
     Subscribe create(Subscribe subscribe);
     void UnSubscribe(String id);
 
-
 }
