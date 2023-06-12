@@ -12,4 +12,16 @@ public interface BlogDetailsService {
     BlogDetails update(String id, BlogDetails blogDetails);
     BlogDetails delete(String id);
 
+
+//    Finding Method
+
+    List<BlogDetails> findByAuther(String auther);
+    List<BlogDetails> findByTitleStartingWith(String title);
+    List<BlogDetails> findByTopicStartingWith(String topic);
+    List<BlogDetails> findByEmail(String email);
+    List<BlogDetails> findByBlogTextStartingWith(String blogText);
+
 }
+
+
+
