@@ -7,7 +7,7 @@ import java.util.List;
 
 public interface BlogDetailsRepository extends MongoRepository<BlogDetails, String> {
 
-    List<BlogDetails> findByAuther(String auther);
+    List<BlogDetails> findByAuthor(String author);
     List<BlogDetails> findByTitleStartingWith(String title);
     List<BlogDetails> findByTopicStartingWith(String topic);
     List<BlogDetails> findByEmail(String email);

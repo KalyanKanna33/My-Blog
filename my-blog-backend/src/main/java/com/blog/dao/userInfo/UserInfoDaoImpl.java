@@ -1,15 +1,16 @@
-package com.blog.service.userInfo;
+package com.blog.dao.userInfo;
 
 import com.blog.entity.UserInfo;
 import com.blog.repository.UserInfoRepository;
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
-@Service
-public class UserInfoServiceImpl implements UserInfoService {
+@Component
+public class UserInfoDaoImpl implements UserInfoDao {
 
     private final UserInfoRepository repository;
 
-    public UserInfoServiceImpl(UserInfoRepository repository) {
+    public UserInfoDaoImpl(UserInfoRepository repository) {
         this.repository = repository;
     }
 

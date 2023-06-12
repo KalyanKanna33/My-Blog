@@ -17,7 +17,7 @@ public class BlogDetails {
 
     @Id
     private String id;
-    private String auther;
+    private String author;
     private String title;
     private String topic;
     private String email;

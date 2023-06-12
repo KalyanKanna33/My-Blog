@@ -1,21 +1,21 @@
-package com.blog.service.blogDetails;
+package com.blog.dao.blogDetails;
 
 import com.blog.entity.BlogDetails;
 
 import java.util.List;
 
-public interface BlogDetailsService {
+public interface BlogDetailsDao {
 
     List<BlogDetails> getAllBlog();
     BlogDetails getBlog(String id);
     BlogDetails create(BlogDetails blogDetails);
     BlogDetails update(String id, BlogDetails blogDetails);
-    BlogDetails delete(String id);
+    void delete(String id);
 
 
 //    Finding Method
 
-    List<BlogDetails> findByAuther(String auther);
+    List<BlogDetails> findByAuthor(String author);
     List<BlogDetails> findByTitleStartingWith(String title);
     List<BlogDetails> findByTopicStartingWith(String topic);
     List<BlogDetails> findByEmail(String email);

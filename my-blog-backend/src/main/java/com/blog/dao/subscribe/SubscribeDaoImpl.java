@@ -1,19 +1,20 @@
-package com.blog.service.subscribe;
+package com.blog.dao.subscribe;
 
 import com.blog.entity.Subscribe;
 import com.blog.repository.SubScribeRepository;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Slf4j
-@Service
-public class SubscribeServiceImpl implements SubscribeService {
+@Component
+public class SubscribeDaoImpl implements SubscribeDao {
 
     private final SubScribeRepository repository;
 
-    public SubscribeServiceImpl(SubScribeRepository repository) {
+    public SubscribeDaoImpl(SubScribeRepository repository) {
         this.repository = repository;
     }
 

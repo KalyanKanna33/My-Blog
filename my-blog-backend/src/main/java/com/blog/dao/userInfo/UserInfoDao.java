@@ -1,10 +1,8 @@
-package com.blog.service.userInfo;
+package com.blog.dao.userInfo;
 
 import com.blog.entity.UserInfo;
 
-import java.util.Optional;
-
-public interface UserInfoService {
+public interface UserInfoDao {
     UserInfo getAll();
     UserInfo getUserInfo(String id);
     UserInfo findByMobileNumber(String number);
