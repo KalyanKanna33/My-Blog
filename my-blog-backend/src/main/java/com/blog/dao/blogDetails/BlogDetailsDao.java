@@ -1,6 +1,7 @@
 package com.blog.dao.blogDetails;
 
 import com.blog.entity.BlogDetails;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
 

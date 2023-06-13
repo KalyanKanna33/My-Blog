@@ -1,0 +1,41 @@
+<div class="row back-form shadow-lg p-3 mb-5 bg-body-tertiary rounded">
+  <form>
+    <h3 class="text-center">Create Your Blog</h3>
+    <div class="mb-3">
+      <label for="exampleInputEmail1" class="form-label">Author</label>
+      <input type="text" class="form-control" name="author" [(ngModel)]="blog.author"/>
+    </div>
+    <div class="mb-3">
+      <label for="exampleInputEmail1" class="form-label">Title</label>
+      <input type="text" class="form-control" name="topic" [(ngModel)]="blog.title"/>
+    </div>
+    <div class="mb-3">
+      <label for="exampleInputEmail1" class="form-label">Topic</label>
+      <input type="text" class="form-control" name="topic" [(ngModel)]="blog.topic"/>
+    </div>
+    <div class="mb-3">
+      <label for="exampleInputEmail1" class="form-label">Email</label>
+      <input type="email" class="form-control" name="email" [(ngModel)]="blog.email"/>
+    </div>
+    <div class="form-floating">
+      <textarea
+        class="form-control"
+        placeholder="Leave a comment here"
+        id="floatingTextarea2"
+        style="height: 100px"
+        name="blogText"
+        [(ngModel)]="blog.blogText"
+      ></textarea>
+      <label for="floatingTextarea2">Blog Text</label>
+    </div>
+    <input type="file" multiple value="select" #selectFile (change)="onFileSelected($event)">
+    <div class="mb-3">
+      <label for="exampleInputEmail1" class="form-label">Hash Tags</label>
+      <input type="text" class="form-control" name="hashTag" [(ngModel)]="hashTagValue" (keyup.enter)="addHashTag()" (keyup.space)="addHashTag()" />
+      <div style="display: flex;" >
+        <span *ngFor="let user of hashTag" class="m-1 p-1" style="background-color: rgba(174, 174, 246, 0.436); border-radius: 5px;">{{ user }}</span>
+      </div>
+    </div>
+    <button type="submit" class="btn btn-primary" (click)="onSubmitForm()" >Submit</button>
+  </form>
+</div>

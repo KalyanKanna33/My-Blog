@@ -1,12 +1,18 @@
 package com.blog.dao.blogDetails;
 
 import com.blog.entity.BlogDetails;
+import com.blog.entity.Review;
+import com.blog.exception.BlogDetailsImageNotFoundException;
 import com.blog.exception.BlogDetailsNotFoundException;
 import com.blog.repository.BlogDetailsRepository;
+import com.blog.repository.ReviewRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.List;
 import java.util.UUID;
 
@@ -16,8 +22,11 @@ public class BlogDetailsDaoImpl implements BlogDetailsDao {
 
     private final BlogDetailsRepository repository;
 
-    public BlogDetailsDaoImpl(BlogDetailsRepository repository) {
+    private final ReviewRepository reviewRepository;
+
+    public BlogDetailsDaoImpl(BlogDetailsRepository repository, ReviewRepository reviewRepository) {
         this.repository = repository;
+        this.reviewRepository = reviewRepository;
     }
 
     @Override
@@ -25,6 +34,11 @@ public class BlogDetailsDaoImpl implements BlogDetailsDao {
         log.info("getAllBlog() -> | ");
         List<BlogDetails> all = repository.findAll();
         log.info("getAllBlog() -> | List BlogDetails : {}",all);
+
+        for(BlogDetails temp : all) {
+            temp.setReview(reviewRepository.findByPostId(temp.getId()));
+        }
+
         return all;
     }
 
@@ -38,6 +52,7 @@ public class BlogDetailsDaoImpl implements BlogDetailsDao {
 
     @Override
     public BlogDetails create(BlogDetails blogDetails) {
+
         log.info("create(BlogDetails) -> | Request BlogDetails : {}",blogDetails);
         blogDetails.setId(UUID.randomUUID().toString());
         log.info("create(BlogDetails) -> | After Set Id BlogDetails : {}",blogDetails);

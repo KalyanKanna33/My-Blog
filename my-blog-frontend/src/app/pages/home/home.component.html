@@ -1,0 +1,10 @@
+<h2>Home Component</h2>
+<div class="card" style="width: 18rem" *ngFor="let blogDetails of blog">
+  <div class="card-body">
+    <h5 class="card-title">{{ blogDetails.title }}</h5>
+    <p class="card-text">
+      {{ blogDetails.blogText }}
+    </p>
+    <a href="#" class="btn btn-primary">Open Blog</a>
+  </div>
+</div>

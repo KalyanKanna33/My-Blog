@@ -3,7 +3,9 @@ package com.blog.controller;
 import com.blog.entity.BlogDetails;
 import com.blog.service.BlogDetailsService;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
 
@@ -26,10 +28,11 @@ public class BlogDetailsController {
         return all;
     }
 
-    @PostMapping("/create")
-    public BlogDetails create(@RequestBody BlogDetails blogDetails) {
+    @PostMapping(value = "/create", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
+    public BlogDetails create(@RequestPart("file") MultipartFile file, @RequestPart("blogDetails") BlogDetails blogDetails) {
+
         log.info("create(BlogDetails) -> | BlogDetails : {}",blogDetails);
-        BlogDetails blog = service.create(blogDetails);
+        BlogDetails blog = service.create(file, blogDetails);
         log.info("create(BlogDetails) -> | After Save BlogDetails : {}",blog);
         return blog;
     }

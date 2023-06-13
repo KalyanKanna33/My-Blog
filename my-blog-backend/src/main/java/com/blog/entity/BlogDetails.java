@@ -22,6 +22,7 @@ public class BlogDetails {
     private String topic;
     private String email;
     private String blogText;
+    private String imagePath;
     private List<String> hashTags;
     @Transient
     private List<Review> review;

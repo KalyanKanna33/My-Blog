@@ -9,6 +9,8 @@ import { HomeComponent } from './pages/home/home.component';
 import { BlogViewComponent } from './pages/blog-view/blog-view.component';
 import { FormsModule } from '@angular/forms';
 import { SubscribeFormComponent } from './pages/subscribe-form/subscribe-form.component';
+import { BlogCreateComponent } from './pages/blog-create/blog-create.component';
+import { HttpClientModule } from '@angular/common/http'
 
 @NgModule({
   declarations: [
@@ -17,12 +19,14 @@ import { SubscribeFormComponent } from './pages/subscribe-form/subscribe-form.co
     FooterComponent,
     HomeComponent,
     BlogViewComponent,
-    SubscribeFormComponent
+    SubscribeFormComponent,
+    BlogCreateComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
