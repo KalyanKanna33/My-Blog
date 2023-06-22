@@ -16,19 +16,9 @@ export class BlogDetailsService {
     return this.http.get<BlogDetails[]>("http://localhost:9000/blog/getAll");
   }
 
-  create(blogDetails:BlogDetails, file:File): Observable<BlogDetails> {
+  create(blogDetails:BlogDetails): Observable<BlogDetails> {
 
-    const formData = new FormData();
-
-    formData.append('file',file);
-    formData.append('blogDetails',JSON.stringify(blogDetails))
-
-    // const headers = new HttpHeaders().set('Content-Type', 'multipart/form-data');
-
-    // const header = new HttpHeaders();
-    // header.append('Content-Type', 'multipart/form-data');
-
-    return this.http.post<BlogDetails>("http://localhost:9000/blog/create",formData);
+    return this.http.post<BlogDetails>("http://localhost:9000/blog/create",blogDetails);
   }
 
 }

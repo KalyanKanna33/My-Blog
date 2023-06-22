@@ -14,17 +14,9 @@ export class BlogCreateComponent {
   hashTagValue=''
   hashTag:string[] = []
   review:Review[] = []
-  file:File | undefined;
 
   constructor(private service:BlogDetailsService) {
     this.blog = new BlogDetails('','','','','','','',this.hashTag,this.review)
-  }
-
-  onFileSelected(event:any) {
-    console.log(event)
-    if(event.target.files.length > 0) {
-      this.file = event.target.files[0];
-    }
   }
 
   addHashTag() {
@@ -35,17 +27,14 @@ export class BlogCreateComponent {
   }
 
   onSubmitForm() {
-    let newBlog:BlogDetails = new BlogDetails('',this.blog.author, this.blog.title, this.blog.topic, this.blog.email, this.blog.blogText,'', this.hashTag, this.review)
-    if(this.file)
-      this.service.create(newBlog,this.file).subscribe({
-        next: (data) => {
-          this.blog = data
-          console.log("Success return : ",data)
-        },
-        error: (data) => {
-          console.log("Error : ",data)
-        }
-      });
+    this.service.create(this.blog).subscribe({
+      next:(data) => {
+        console.log(data)
+      },
+      error: (err) => {
+        console.log(err)
+      }
+    })
   }
 
 }

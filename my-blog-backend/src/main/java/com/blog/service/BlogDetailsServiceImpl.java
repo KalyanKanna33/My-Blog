@@ -10,14 +10,16 @@ import org.springframework.web.multipart.MultipartFile;
 
 import java.io.File;
 import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.nio.file.StandardCopyOption;
 import java.util.List;
+import java.util.UUID;
 
 @Slf4j
 @Service
 public class BlogDetailsServiceImpl implements BlogDetailsService {
-
-    @Value("${image.upload.directory}")
-    private String uploadDirectory;
 
     private final BlogDetailsDao dao;
 
@@ -25,24 +27,20 @@ public class BlogDetailsServiceImpl implements BlogDetailsService {
         this.dao = dao;
     }
 
-    @Override
-    public BlogDetails create(MultipartFile file, BlogDetails blogDetails) {
-        if(file.isEmpty()) {
-            throw new BlogDetailsImageNotFoundException();
-        }
+    private boolean isValidFileType(MultipartFile file) {
+        log.info("isValidFileType(MultipartFile) -> | MultipartFile : {}",file);
+        String contentType = file.getContentType();
+        return contentType != null && contentType.startsWith("image/");
+    }
 
-        try {
-            String filename = file.getOriginalFilename();
-            file.transferTo((new File(uploadDirectory+"/"+filename)));
-            blogDetails.setImagePath(filename);
-        }
-        catch(IOException ex) {
-            ex.printStackTrace();
-        }
+    @Override
+    public BlogDetails create(BlogDetails blogDetails) {
         log.info("create(BlogDetails) -> | BlogDetails : {}",blogDetails);
-        BlogDetails blog = dao.create(blogDetails);
-        log.info("create(BlogDetails) -> | After Save BlogDetails : {}",blog);
-        return blog;
+        blogDetails.setId(UUID.randomUUID().toString());
+        log.info("create(BlogDetails) -> | Set Id : {}",blogDetails);
+        BlogDetails getSave = dao.create(blogDetails);
+        log.info("create(BlogDetails) -> | After execute Dao Create : {}",getSave);
+        return getSave;
     }
 
     @Override
@@ -54,3 +52,4 @@ public class BlogDetailsServiceImpl implements BlogDetailsService {
     }
 
 }
+//C:\Users\Subham Kr Gupta\Desktop\FrontEnd\Blog Website\My-Blog\my-blog-backend\image

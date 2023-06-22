@@ -2,6 +2,8 @@ package com.blog.controller;
 
 import com.blog.entity.BlogDetails;
 import com.blog.service.BlogDetailsService;
+
+import com.google.gson.Gson;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
@@ -28,13 +30,12 @@ public class BlogDetailsController {
         return all;
     }
 
-    @PostMapping(value = "/create", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
-    public BlogDetails create(@RequestPart("file") MultipartFile file, @RequestPart("blogDetails") BlogDetails blogDetails) {
-
+    @PostMapping("/create")
+    public BlogDetails create(@RequestBody BlogDetails blogDetails) {
         log.info("create(BlogDetails) -> | BlogDetails : {}",blogDetails);
-        BlogDetails blog = service.create(file, blogDetails);
-        log.info("create(BlogDetails) -> | After Save BlogDetails : {}",blog);
-        return blog;
+        BlogDetails save = service.create(blogDetails);
+        log.info("create(BlogDetails) -> | After Service : {}",save);
+        return save;
     }
 
 }

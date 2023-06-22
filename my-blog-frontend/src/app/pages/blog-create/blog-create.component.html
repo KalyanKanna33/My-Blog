@@ -28,7 +28,10 @@
       ></textarea>
       <label for="floatingTextarea2">Blog Text</label>
     </div>
-    <input type="file" multiple value="select" #selectFile (change)="onFileSelected($event)">
+    <div class="mb-3">
+      <label for="exampleInputEmail1" class="form-label">Image Link</label>
+      <input type="email" class="form-control" name="email" [(ngModel)]="blog.imagePath"/>
+    </div>
     <div class="mb-3">
       <label for="exampleInputEmail1" class="form-label">Hash Tags</label>
       <input type="text" class="form-control" name="hashTag" [(ngModel)]="hashTagValue" (keyup.enter)="addHashTag()" (keyup.space)="addHashTag()" />

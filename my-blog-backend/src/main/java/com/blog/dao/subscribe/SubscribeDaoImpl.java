@@ -20,17 +20,19 @@ public class SubscribeDaoImpl implements SubscribeDao {
 
     @Override
     public List<Subscribe> getAllSubscribe() {
+//        TODO
         return null;
     }
 
     @Override
     public Subscribe create(Subscribe subscribe) {
+//        TODO
         return null;
     }
 
     @Override
     public void UnSubscribe(String id) {
-
+//        TODO
     }
 
 }

@@ -7,7 +7,7 @@ import java.util.List;
 
 public interface BlogDetailsService {
 
-    BlogDetails create (MultipartFile file, BlogDetails blogDetails);
+    BlogDetails create (BlogDetails blogDetails);
 
     List<BlogDetails> getAll();
 

@@ -1,6 +1,4 @@
-.main-content {
-    height: 80vh;
-    margin-top: 150px;
-    margin-bottom: 300px;
-    /* overflow-y: hidden; */
+.content {
+    margin-top: 100px;
+    margin-bottom: 100px;
 }

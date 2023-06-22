@@ -16,16 +16,19 @@ public class UserInfoDaoImpl implements UserInfoDao {
 
     @Override
     public UserInfo getAll() {
+//        TODO
         return null;
     }
 
     @Override
     public UserInfo getUserInfo(String id) {
+//        TODO
         return null;
     }
 
     @Override
     public UserInfo findByMobileNumber(String number) {
+//        TODO
         return null;
     }
 
