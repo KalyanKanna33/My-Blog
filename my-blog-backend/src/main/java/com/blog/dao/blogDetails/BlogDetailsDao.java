@@ -12,6 +12,7 @@ public interface BlogDetailsDao {
     BlogDetails create(BlogDetails blogDetails);
     BlogDetails update(String id, BlogDetails blogDetails);
     void delete(String id);
+    void deleteAll();
 
 
 //    Finding Method

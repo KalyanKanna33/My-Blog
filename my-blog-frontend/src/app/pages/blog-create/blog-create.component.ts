@@ -29,7 +29,7 @@ export class BlogCreateComponent {
   onSubmitForm() {
     this.service.create(this.blog).subscribe({
       next:(data) => {
-        console.log(data)
+        location.reload();
       },
       error: (err) => {
         console.log(err)

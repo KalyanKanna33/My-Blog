@@ -86,6 +86,13 @@ public class BlogDetailsDaoImpl implements BlogDetailsDao {
         log.info("delete(String) -> | Deleted... ID : {}",id);
     }
 
+    @Override
+    public void deleteAll() {
+        log.info("deleteAll() -> | ");
+        repository.deleteAll();
+        log.info("deleteAll() -> | All Deleted");
+    }
+
 //    Find Methods
 
     @Override

@@ -8,7 +8,8 @@ import java.util.List;
 public interface BlogDetailsService {
 
     BlogDetails create (BlogDetails blogDetails);
-
     List<BlogDetails> getAll();
+    void blogDeleteById(String id);
+    void blogDeleteAll();
 
 }

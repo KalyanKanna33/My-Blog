@@ -25,6 +25,14 @@ export class HomeComponent {
         console.log("Error : ",data)
       }
     })
+    
+  }
+
+  cutBlogText(blogText:string) {
+    if(blogText.length > 50) {
+      return blogText.substring(0,51);
+    }
+    return blogText;
   }
 
 

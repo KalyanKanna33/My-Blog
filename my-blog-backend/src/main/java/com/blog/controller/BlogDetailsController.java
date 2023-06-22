@@ -2,12 +2,8 @@ package com.blog.controller;
 
 import com.blog.entity.BlogDetails;
 import com.blog.service.BlogDetailsService;
-
-import com.google.gson.Gson;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
 
@@ -36,6 +32,20 @@ public class BlogDetailsController {
         BlogDetails save = service.create(blogDetails);
         log.info("create(BlogDetails) -> | After Service : {}",save);
         return save;
+    }
+
+    @DeleteMapping("/delete/{id}")
+    public void blogDeleteById(@RequestParam String id) {
+        log.info("blogDeleteById(String) -> | Id : {}",id);
+        service.blogDeleteById(id);
+        log.info("blogDeleteById(String) -> | Id : {} | Completed",id);
+    }
+
+    @DeleteMapping("/deleteAll")
+    public void blogDeleteAll() {
+        log.info("blogDeleteAll() -> | ");
+        service.blogDeleteAll();
+        log.info("blogDeleteAll() -> | Completed");
     }
 
 }

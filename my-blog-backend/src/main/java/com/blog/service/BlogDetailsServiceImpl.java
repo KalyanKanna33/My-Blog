@@ -27,12 +27,6 @@ public class BlogDetailsServiceImpl implements BlogDetailsService {
         this.dao = dao;
     }
 
-    private boolean isValidFileType(MultipartFile file) {
-        log.info("isValidFileType(MultipartFile) -> | MultipartFile : {}",file);
-        String contentType = file.getContentType();
-        return contentType != null && contentType.startsWith("image/");
-    }
-
     @Override
     public BlogDetails create(BlogDetails blogDetails) {
         log.info("create(BlogDetails) -> | BlogDetails : {}",blogDetails);
@@ -51,5 +45,22 @@ public class BlogDetailsServiceImpl implements BlogDetailsService {
         return all;
     }
 
+    @Override
+    public void blogDeleteById(String id) {
+        log.info("blogDeleteById(String) -> | Id : {}",id);
+        dao.delete(id);
+        log.info("blogDeleteById(String) -> | Id : {} | Deleted",id);
+    }
+
+    @Override
+    public void blogDeleteAll() {
+        log.info("blogDeleteAll() -> | ");
+        dao.deleteAll();
+        log.info("blogDeleteAll() -> | All delete");
+    }
+
+
 }
-//C:\Users\Subham Kr Gupta\Desktop\FrontEnd\Blog Website\My-Blog\my-blog-backend\image
+
+
+
