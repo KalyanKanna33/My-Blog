@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { BlogDetails } from 'src/app/model/BlogDetails.model';
 import { BlogDetailsService } from 'src/app/service/blog-details.service';
 
@@ -9,10 +10,10 @@ import { BlogDetailsService } from 'src/app/service/blog-details.service';
 })
 export class HomeComponent {
 
-  blog:BlogDetails[] = []
+  blog: BlogDetails[] = [];
 
-  constructor(private service:BlogDetailsService) {
 
+  constructor(private service: BlogDetailsService, private router: Router) {
   }
 
   ngOnInit() {

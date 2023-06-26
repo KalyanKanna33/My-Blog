@@ -1,16 +1,21 @@
-<!-- <h2>Home Component</h2> -->
-<div class="card-management col-md-12">
-  <div class="card custom-size-card col-md-4" *ngFor="let blogDetails of blog">
-    <img [src]="blogDetails.imagePath" class="card-img-top img-thumbnail">
-    <div class="card-body">
-      <h5 class="card-title">{{ blogDetails.title }}</h5>
-      <p class="card-text">
-        {{ cutBlogText(blogDetails.blogText) }} ...
-      </p>
-      <a href="#" class="btn btn-primary">Open Blog</a>
+
+<div >
+<app-image-component></app-image-component>
+<hr>
+<div *ngFor="let blogDetails of blog"></div>
+
+<div class="container card-management col-md-11">
+  <label class="label">My Blogs</label>
+  <div class="row card-management">
+    <div class="card custom-size-card col-md-4" *ngFor="let blogDetails of blog">
+      <img [src]="blogDetails.imagePath" class="card-img-top img-thumbnail photo" />
+      <div class="card-body">
+        <h5 class="card-title">{{ blogDetails.title }}</h5>
+        <p class="card-text">{{ cutBlogText(blogDetails.blogText) }} ...</p>
+        <a routerLink="/blog-view" class="btn btn-primary">Open Blog</a>
+      </div>
     </div>
   </div>
 </div>
-
-
-
+<app-cards></app-cards>
+</div>
