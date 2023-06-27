@@ -1,0 +1,14 @@
+label{
+    color: white;
+    
+}
+.main{
+    
+    display: grid;
+    width:230px;
+    padding-top: 100px;
+    padding-bottom: 200px;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}

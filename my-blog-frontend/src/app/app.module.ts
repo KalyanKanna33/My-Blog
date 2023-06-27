@@ -12,6 +12,7 @@ import { BlogCreateComponent } from './pages/blog-create/blog-create.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ImageComponentComponent } from './layout/image-component/image-component.component';
 import { CardsComponent } from './layout/cards/cards.component';
+import { MainComponent } from './layout/main/main.component';
 
 
 @NgModule({
@@ -24,7 +25,8 @@ import { CardsComponent } from './layout/cards/cards.component';
     SubscribeFormComponent,
     BlogCreateComponent,
     ImageComponentComponent,
-    CardsComponent
+    CardsComponent,
+    MainComponent
   ],
   imports: [
     BrowserModule,
